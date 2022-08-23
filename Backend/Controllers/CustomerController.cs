@@ -1,56 +1,61 @@
 ﻿using BusinessLogic.BOs;
 using BusinessLogic.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
 namespace Backend.Controllers
 {
-    public class CarController : ApiController
+    public class CustomerController : ApiController
     {
-        [Route("api/car/")]
+        [Route("api/customer/")]
         [HttpGet]
         public HttpResponseMessage GetAll()
         {
-            return Request.CreateResponse(HttpStatusCode.OK, CarService.GetAll());
+            return Request.CreateResponse(HttpStatusCode.OK, CustomerServices.GetAll());
         }
 
-        [Route("api/car/{id}")]
+        [Route("api/customer/{id}")]
         [HttpGet]
         public HttpResponseMessage GetById(int id)
         {
-            var data = CarService.GetById(id);
+            var data = CustomerServices.GetById(id);
             if (data == null)
+            {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
             else
+            {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
 
         }
 
-        [Route("api/car/create")]
+        [Route("api/customer/create")]
         [HttpPost]
-        public HttpResponseMessage Create(CarModel t)
+        public HttpResponseMessage Create(CustomerModel t)
         {
-            var res = CarService.Create(t);
+            var res = CustomerServices.Create(t);
             return Request.CreateResponse(HttpStatusCode.OK, res);
         }
 
-        [Route("api/car/update")]
+        [Route("api/customer/update")]
         [HttpPost]
-        public HttpResponseMessage Update(CarModel t)
+        public HttpResponseMessage Update(CustomerModel t)
         {
-            var res = CarService.Update(t);
+            var res = CustomerServices.Update(t);
             return Request.CreateResponse(HttpStatusCode.OK, res);
         }
 
-        [Route("api/car/delete/{id}")]
+        [Route("api/customer/delete/{id}")]
         [HttpPost]
         public HttpResponseMessage Delete(int id)
         {
-            var res = CarService.Delete(id);
+            var res = CustomerServices.Delete(id);
             return Request.CreateResponse(HttpStatusCode.OK, res);
         }
     }
-
 }
-

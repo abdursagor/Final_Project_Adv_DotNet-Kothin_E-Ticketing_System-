@@ -1,5 +1,6 @@
 ﻿using DataLayer.EF;
 using DataLayer.Interfaces;
+using DataLayer.Repo;
 using DataLayer.Repos;
 using System;
 using System.Collections.Generic;
@@ -54,5 +55,20 @@ namespace DataLayer
         {
             return new CarRepo(db);
         }
+        public static IRepo<Admin, int> AdminRepo()
+        {
+            return new AdminRepo(db);
+        }
+        public static IRepo<Bus, int> BusRepo()
+        {
+            return new BusRepo(db);
+        }
+        public static IRepo<Customer, int> CustomerRepo()
+        {
+            return new CustomerRepo(db);
+        }
+
+
+
     }
 }

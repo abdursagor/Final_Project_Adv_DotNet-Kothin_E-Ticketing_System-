@@ -1,9 +1,9 @@
-﻿using BLL.BOs;
+﻿using BusinessLogic.BOs;
 using DataLayer;
 using DataLayer.EF;
 using System.Collections.Generic;
 
-namespace Business_Logic.Services
+namespace BusinessLogic.Services
 {
     public class Airple_SchedulesServices
     {

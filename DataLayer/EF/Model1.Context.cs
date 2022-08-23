@@ -16,7 +16,7 @@ namespace DataLayer.EF
     public partial class ETicketEntities : DbContext
     {
         public ETicketEntities()
-            : base("name=Entities")
+            : base("name=ETicketEntities")
         {
         }
     

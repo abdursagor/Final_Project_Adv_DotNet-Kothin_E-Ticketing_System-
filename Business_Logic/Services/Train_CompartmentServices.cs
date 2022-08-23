@@ -17,7 +17,7 @@ namespace BusinessLogic.Services
             List<Train_CompartmentModel> compartment = new List<Train_CompartmentModel>();
             foreach (var d in data)
             {
-                compartment.Add(new Train_CompartmentModel { Id = d.Id, Type = d.Type, TrainId = d.TrainId, Data=d.Data });
+                compartment.Add(new Train_CompartmentModel { Id = d.Id, Type = d.Type, TrainId = (int)d.TrainId, Data=d.Data });
             }
             return compartment;
         }
@@ -31,7 +31,7 @@ namespace BusinessLogic.Services
             {
                 Id = data.Id,
                 Type = data.Type,
-                TrainId = data.TrainId,
+                TrainId = (int)data.TrainId,
                 Data = data.Data,
             };
         }
